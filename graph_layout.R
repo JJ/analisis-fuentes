@@ -1,7 +1,8 @@
 historiografia_data <- read.csv("data/grafo.csv", header = TRUE, stringsAsFactors = FALSE)
 
 library(igraph)
-g <- graph_from_data_frame(historiografia_data, directed = FALSE)
+
+g <- graph_from_data_frame(historiografia_data, directed=FALSE)
 plot(g, vertex.label.cex=0.7, vertex.size=5, edge.arrow.size=0.5)
 
 V(g)$degree <- degree(g, mode="all")
