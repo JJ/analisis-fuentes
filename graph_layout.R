@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 historiografia_data <- read.csv("data/grafo.csv", header = TRUE, stringsAsFactors = FALSE)
 
 library(igraph)
