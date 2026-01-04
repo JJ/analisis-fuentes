@@ -20,7 +20,7 @@ layout <- layout_with_kk(g_main)
 V(g_main)$label.cex <- 1+V(g_main)$degree/10
 png("figures/graph_layout.png", width=2400, height=1600)
 plot(g_main, vertex.size=2+V(g_main)$betweenness/200, vertex.color = rainbow(10, .8, .8, alpha= .8),
-     edge.width=1+E(g_main)$edge_betweenness/100,
+     edge.width=1+E(g_main)$edge_betweenness/50,
      layout=layout, alpha = .8)
 
 dev.off()
