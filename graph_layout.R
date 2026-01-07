@@ -9,6 +9,12 @@ plot(g, vertex.label.cex=0.7, vertex.size=5, edge.arrow.size=0.5)
 
 V(g)$degree <- degree(g, mode="all")
 V(g)$betweenness <- betweenness(g, directed=FALSE)
+
+node_betweenness_df <- data.frame(name=V(g)$name, betweenness=V(g)$betweenness)
+top_20_betweenness <- head(node_betweenness_df[order(-node_betweenness_df$betweenness), ], 20)
+cat(t(t(top_20_betweenness$name)), sep="\n")
+
+
 E(g)$edge_betweenness <- edge_betweenness(g)
 
 plot(g, vertex.size=V(g)$betweenness/100, vertex.label.cex=0.7, edge.arrow.size=0.5)
