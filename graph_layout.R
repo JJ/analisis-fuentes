@@ -28,7 +28,7 @@ g_main <- induced_subgraph(g, vertices_in_main_component)
 g_main <- delete_vertices(g_main, V(g_main)[degree(g_main) <= 1])
 
 layout <- layout_with_kk(g_main)
-V(g_main)$label.cex <- 1+V(g_main)$degree/100
+V(g_main)$label.cex <- 1+V(g_main)$degree/10
 
 png("figures/graph_layout.png", width=2400, height=1600)
 par(mar=c(0,0,0,0))
