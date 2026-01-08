@@ -24,8 +24,12 @@ main_component <- which.max(components$csize)
 vertices_in_main_component <- V(g)[components$membership == main_component]
 g_main <- induced_subgraph(g, vertices_in_main_component)
 
+#eliminate those nodes with degree <= 1
+g_main <- delete_vertices(g_main, V(g_main)[degree(g_main) <= 1])
+
 layout <- layout_with_kk(g_main)
-V(g_main)$label.cex <- 1+V(g_main)$degree/50
+V(g_main)$label.cex <- 1+V(g_main)$degree/100
+
 png("figures/graph_layout.png", width=2400, height=1600)
 par(mar=c(0,0,0,0))
 plot(g_main, vertex.size=2+V(g_main)$betweenness/200, vertex.color = rainbow(10, .8, .8, alpha= .8),
